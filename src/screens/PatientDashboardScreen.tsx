@@ -139,6 +139,12 @@ const PatientDashboardScreen: React.FC = () => {
           containerStyle={styles.button as ViewStyle}
           buttonStyle={styles.logoutButton}
         />
+                <Button
+          title="Configurações"
+          onPress={() => navigation.navigate('Settings')}
+          containerStyle={styles.button as ViewStyle}
+          buttonStyle={styles.settingsButton}
+        />
       </ScrollView>
     </Container>
   );
@@ -180,7 +186,12 @@ const styles = {
     fontWeight: '700',
     color: theme.colors.text,
   },
+   settingsButton: {
+    backgroundColor: theme.colors.secondary,
+    paddingVertical: 12,
+  },
 };
+
 
 const Container = styled.View`
   flex: 1;
@@ -231,5 +242,6 @@ const StatusText = styled.Text<StyledProps>`
   font-size: 12px;
   font-weight: 500;
 `;
+
 
 export default PatientDashboardScreen; 
