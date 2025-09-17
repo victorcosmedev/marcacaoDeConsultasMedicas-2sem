@@ -111,8 +111,6 @@ const CreateAppointmentScreen: React.FC = () => {
 
       // Salva lista atualizada
       await AsyncStorage.setItem('@MedicalApp:appointments', JSON.stringify(appointments));
-
-      // Envia notificação para o médico
       await notificationService.notifyNewAppointment(selectedDoctor.id, newAppointment);
 
       alert('Consulta agendada com sucesso!');

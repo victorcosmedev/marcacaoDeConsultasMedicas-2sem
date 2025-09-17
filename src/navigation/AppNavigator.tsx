@@ -3,20 +3,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useAuth } from '../contexts/AuthContext';
 import { RootStackParamList } from '../types/navigation';
-import EditProfileScreen from '../screens/EditProfileScreen';
-import NotificationsScreen from '../screens/NotificationsScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 
 // Screens
-import LoginScreen from '../screens/LoginScreen';
+import LoginScreen from './../screens/LoginScreen/index';
 import RegisterScreen from '../screens/RegisterScreen';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/HomeScreen/index';
 import CreateAppointmentScreen from '../screens/CreateAppointmentScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from './../screens/ProfileScreen/index';
 import AdminDashboardScreen from '../screens/AdminDashboardScreen';
-import DoctorDashboardScreen from '../screens/DoctorDashboardScreen';
+import DoctorDashboardScreen from '../screens/DoctorDashboardScreen/index';
 import PatientDashboardScreen from '../screens/PatientDashboardScreen';
 
+import EditProfileScreen from './../screens/EditProfileScreen/index';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const AppNavigator: React.FC = () => {

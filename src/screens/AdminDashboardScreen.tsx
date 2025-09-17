@@ -61,6 +61,7 @@ const getStatusText = (status: string) => {
   }
 };
 
+
 const AdminDashboardScreen: React.FC = () => {
   const { user, signOut } = useAuth();
   const navigation = useNavigation<AdminDashboardScreenProps['navigation']>();
@@ -84,8 +85,6 @@ const AdminDashboardScreen: React.FC = () => {
         const allUsers: User[] = JSON.parse(storedUsers);
         setUsers(allUsers);
       }
-
-      // Carrega estatísticas
       const stats = await statisticsService.getGeneralStatistics();
       setStatistics(stats);
     } catch (error) {
@@ -285,6 +284,7 @@ const styles = {
     color: theme.colors.text,
     marginTop: 4,
   },
+  
 };
 
 const Container = styled.View`

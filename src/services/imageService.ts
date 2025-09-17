@@ -1,10 +1,9 @@
 import * as ImagePicker from 'expo-image-picker';
 import { storageService, STORAGE_KEYS } from './storage';
-import { StoredImage } from '../types/storedImage';
 
 export interface ImageResult {
   uri: string;
-  base64?: string | null;
+  base64?: string;
   width: number;
   height: number;
   fileSize?: number;
@@ -134,7 +133,7 @@ export const imageService = {
   async updateUserImageIndex(userId: string, imageId: string): Promise<void> {
     try {
       const indexKey = `@MedicalApp:userImages:${userId}`;
-      const currentImages = (await storageService.getItem<string[]>(indexKey, [])) ?? [];
+      const currentImages = await storageService.getItem<string[]>(indexKey, []);
       
       // Remove imagens antigas e adiciona a nova
       const updatedImages = [imageId, ...currentImages.slice(0, 4)]; // Mantém apenas as 5 mais recentes
@@ -149,7 +148,7 @@ export const imageService = {
   async getUserProfileImage(userId: string): Promise<string | null> {
     try {
       const indexKey = `@MedicalApp:userImages:${userId}`;
-      const userImages = (await storageService.getItem<string[]>(indexKey, [])) ?? [];
+      const userImages = await storageService.getItem<string[]>(indexKey, []);
       
       if (userImages.length === 0) {
         return null;
@@ -158,7 +157,7 @@ export const imageService = {
       // Pega a imagem mais recente
       const latestImageId = userImages[0];
       const imageKey = `@MedicalApp:profileImage:${latestImageId}`;
-      const imageData = await storageService.getItem<StoredImage>(imageKey);
+      const imageData = await storageService.getItem(imageKey);
       
       if (imageData && imageData.base64) {
         return `data:image/jpeg;base64,${imageData.base64}`;
@@ -175,7 +174,7 @@ export const imageService = {
   async cleanupOldImages(userId: string): Promise<void> {
     try {
       const indexKey = `@MedicalApp:userImages:${userId}`;
-      const userImages = (await storageService.getItem<string[]>(indexKey, [])) ?? [];
+      const userImages = await storageService.getItem<string[]>(indexKey, []);
       
       // Remove imagens além das 5 mais recentes
       const imagesToRemove = userImages.slice(5);

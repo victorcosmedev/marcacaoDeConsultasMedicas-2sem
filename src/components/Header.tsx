@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import theme from '../styles/theme';
 import NotificationBell from './NotificationBell';
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   const { user } = useAuth();
 
   if (!user) return null;

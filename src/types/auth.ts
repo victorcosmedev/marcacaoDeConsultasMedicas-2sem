@@ -80,4 +80,4 @@ export interface AuthContextData {
   register: (data: RegisterData) => Promise<void>;
   signOut: () => Promise<void>;
   updateUser: (user: User) => Promise<void>;
-}
+} 

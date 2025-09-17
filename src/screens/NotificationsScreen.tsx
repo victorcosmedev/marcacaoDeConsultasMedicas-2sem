@@ -10,7 +10,6 @@ import { RootStackParamList } from '../types/navigation';
 import theme from '../styles/theme';
 import Header from '../components/Header';
 import { notificationService, Notification } from '../services/notifications';
-import { TextStyle } from 'react-native';
 
 type NotificationsScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Notifications'>;
@@ -198,17 +197,17 @@ const styles = {
     backgroundColor: theme.colors.primary,
     paddingVertical: 12,
   },
-  title: { // fix
+  title: {
     fontSize: 16,
     fontWeight: 'bold',
     color: theme.colors.text,
-  } as TextStyle,
+  },
   message: {
     fontSize: 14,
     color: theme.colors.text,
     marginTop: 4,
     lineHeight: 20,
-  } as TextStyle,
+  },
 };
 
 const Container = styled.View`
@@ -250,11 +249,11 @@ const EmptyText = styled.Text`
 `;
 
 const NotificationCard = styled.View<{ isRead: boolean }>`
-  background-color: ${(props: any) => props.isRead ? theme.colors.white : theme.colors.primary + '10'}; // fix
+  background-color: ${(props) => props.isRead ? theme.colors.white : theme.colors.primary + '10'};
   border-radius: 8px;
   margin-bottom: 8px;
   border-width: 1px;
-  border-color: ${(props: any) => props.isRead ? theme.colors.border : theme.colors.primary + '30'}; // fix
+  border-color: ${(props) => props.isRead ? theme.colors.border : theme.colors.primary + '30'};
 `;
 
 const NotificationIcon = styled.Text`

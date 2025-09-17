@@ -19,4 +19,8 @@ export type Appointment = {
   time: string;
   description: string;
   status: string;
+  patientId: string;
+  patientName: string;
+  specialty: string;
+  doctorName: string;
 }; 

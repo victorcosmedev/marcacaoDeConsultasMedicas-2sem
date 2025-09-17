@@ -157,15 +157,15 @@ const Container = styled.View`
 `;
 
 const ImageContainer = styled.View<{ size: number }>`
-  width: ${(props: any) => props.size}px;
-  height: ${(props: any) => props.size}px;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
   position: relative;
 `;
 
 const ProfileImage = styled.Image<{ size: number }>`
-  width: ${(props: any) => props.size}px;
-  height: ${(props: any) => props.size}px;
-  border-radius: ${(props: any) => props.size / 2}px;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
+  border-radius: ${props => props.size / 2}px;
   border-width: 3px;
   border-color: ${theme.colors.primary};
 `;
@@ -174,9 +174,9 @@ const LoadingOverlay = styled.View<{ size: number }>`
   position: absolute;
   top: 0;
   left: 0;
-  width: ${(props: any) => props.size}px;
-  height: ${(props: any) => props.size}px;
-  border-radius: ${(props: any) => props.size / 2}px;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
+  border-radius: ${props => props.size / 2}px;
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
@@ -203,7 +203,7 @@ const EditButton = styled.TouchableOpacity`
 
 const ChangePhotoText = styled.Text`
   font-size: 12px;
-  color: ${theme.colors.secondary};
+  color: ${theme.colors.textSecondary};
   margin-top: 8px;
   text-align: center;
 `;
